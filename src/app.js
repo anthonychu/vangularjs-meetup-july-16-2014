@@ -6,7 +6,9 @@ angular.module('TestApp', [
     'ngAnimate',
 
     'phoneCtrl',
-    'phoneFilter'
+    'phoneFilter',
+    'pollCtrl',
+    'pollDirective'
 ])
 .config(function($routeProvider) {
     $routeProvider.otherwise({
