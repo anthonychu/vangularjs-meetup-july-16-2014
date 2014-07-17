@@ -8,7 +8,7 @@
 
         this.text = "Hello, World";
 
-        $http.get('/api/polls/1.json').then(function (result) {
+        $http.get('api/polls/1.json').then(function (result) {
             self.poll = result.data;
         });
 
