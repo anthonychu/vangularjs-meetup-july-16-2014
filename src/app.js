@@ -11,7 +11,7 @@ angular.module('TestApp', [
     'pollDirective',
     'pollAnswer'
 ])
-.config(function($routeProvider) {
+.config(function ($routeProvider) {
     $routeProvider.otherwise({
         redirectTo: '/phones'
     });

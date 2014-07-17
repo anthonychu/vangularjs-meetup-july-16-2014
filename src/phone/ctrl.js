@@ -2,7 +2,7 @@
 
 angular.module('phoneCtrl', ['ng', 'phoneService'])
 
-.config(function($routeProvider) {
+.config(function ($routeProvider) {
     $routeProvider.when('/phones', {
         templateUrl: 'src/phone/phone-list.html',
         controller: 'PhoneListCtrl'
@@ -14,19 +14,19 @@ angular.module('phoneCtrl', ['ng', 'phoneService'])
     });
 })
 
-.controller('PhoneListCtrl', function($scope, Phone) {
+.controller('PhoneListCtrl', function ($scope, Phone) {
     $scope.phones = Phone.query();
     $scope.orderProp = 'age';
 })
 
-.controller ('PhoneDetailCtrl', function($scope, $routeParams, Phone) {
+.controller('PhoneDetailCtrl', function ($scope, $routeParams, Phone) {
     $scope.phone = Phone.get({
-                        phoneId: $routeParams.phoneId
-                    }, function(phone) {
-                        $scope.mainImageUrl = phone.images[0];
-                    });
+        phoneId: $routeParams.phoneId
+    }, function (phone) {
+        $scope.mainImageUrl = phone.images[0];
+    });
 
-    $scope.setImage = function(imageUrl) {
+    $scope.setImage = function (imageUrl) {
         $scope.mainImageUrl = imageUrl;
     }
 });
