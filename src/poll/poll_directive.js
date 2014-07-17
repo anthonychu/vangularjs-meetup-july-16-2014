@@ -4,7 +4,7 @@
     module.directive('poll', function () {
         return {
             restrict: 'A',
-            templateUrl: '/src/poll/poll.html',
+            templateUrl: 'src/poll/poll.html',
             controller: 'pollCtrl',
             controllerAs: 'pollVm',
             scope: true,
