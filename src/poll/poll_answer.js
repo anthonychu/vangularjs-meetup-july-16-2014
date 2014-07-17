@@ -3,15 +3,15 @@
   module.directive('pollAnswer', function ($rootScope) {
     return {
       restrict: 'A',
-      requires: '^poll',
+      require: '^poll',
       transclude: true,
       scope: {
         answerId: '=answer'
       },
       template: '<div><input type="checkbox"><span ng-transclude></span></div>',
-      link: function ($scope, $element, $attrs, ctrl) {
+      link: function ($scope, $element, $attrs, pollCtrl) {
         $element.on('click', function () {
-          ctrl.pickAnswer($scope.answerId);
+          pollCtrl.pickAnswer($scope.answerId);
           $rootScope.$emit('pickedAnswer', $scope.answerId);
         });
       }
