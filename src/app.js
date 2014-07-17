@@ -8,7 +8,8 @@ angular.module('TestApp', [
     'phoneCtrl',
     'phoneFilter',
     'pollCtrl',
-    'pollDirective'
+    'pollDirective',
+    'pollAnswer'
 ])
 .config(function($routeProvider) {
     $routeProvider.otherwise({
