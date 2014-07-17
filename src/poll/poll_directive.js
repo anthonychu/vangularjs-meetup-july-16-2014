@@ -6,8 +6,9 @@
             restrict: 'A',
             templateUrl: '/src/poll/poll.html',
             controller: 'pollCtrl',
-            scope: {},
-            link: function ($scope, $element, $attrs) {
+            controllerAs: 'pollVm',
+            scope: true,
+            link: function (scope, element, attrs) {
 
             }
         };

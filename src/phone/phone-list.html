@@ -6,17 +6,17 @@
   <form role="form" class="well">
     <div class="form-group">
       <label for="query">Search:</label>
-      <input type="search" class="form-control" id="query" name="query" ng-model="query">
+      <input type="search" class="form-control" id="query" name="query" ng-model="listVm.query">
     </div>
     <div class="form-group">
       <label for="order">Sort by:</label>
-      <select class="form-control" ng-model="orderProp">
+      <select class="form-control" ng-model="listVm.orderProp">
         <option value="name">Alphabetical</option>
         <option value="age">Newest</option>
       </select>
     </div>
   </form>
-  Number of phones: {{ phones.length }}
+  Number of phones: {{ listVm.phones.length }}
 
   <h3>{{poll.question}}</h3>
   <div data-poll></div>
@@ -24,7 +24,7 @@
 <div class="col-sm-8 col-md-9">
   <!--Body content-->
   <div class="list-group phones">
-    <div ng-repeat="phone in phones | filter:query | orderBy:orderProp"
+    <div ng-repeat="phone in listVm.phones | filter: listVm.query | orderBy: listVm.orderProp"
          class="list-group-item text-center phone-listing">
       <a ng-href="#/phones/{{phone.id}}" class="thumb">
         <img ng-src="{{phone.imageUrl}}">

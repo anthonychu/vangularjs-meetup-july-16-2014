@@ -9,10 +9,10 @@
                 answerId: '=answer'
             },
             template: '<div><input type="checkbox"><span ng-transclude></span></div>',
-            link: function ($scope, $element, $attrs, pollCtrl) {
-                $element.on('click', function () {
-                    pollCtrl.pickAnswer($scope.answerId);
-                    $rootScope.$emit('pickedAnswer', $scope.answerId);
+            link: function (scope, element, attrs, pollCtrl) {
+                element.on('click', function () {
+                    pollCtrl.pickAnswer(scope.answerId);
+                    $rootScope.$emit('pickedAnswer', scope.answerId);
                 });
             }
         }

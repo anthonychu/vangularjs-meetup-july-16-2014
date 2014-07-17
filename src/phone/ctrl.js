@@ -5,28 +5,32 @@ angular.module('phoneCtrl', ['ng', 'phoneService'])
 .config(function ($routeProvider) {
     $routeProvider.when('/phones', {
         templateUrl: 'src/phone/phone-list.html',
-        controller: 'PhoneListCtrl'
+        controller: 'PhoneListCtrl',
+        controllerAs: 'listVm'
     });
 
     $routeProvider.when('/phones/:phoneId', {
         templateUrl: 'src/phone/phone-detail.html',
-        controller: 'PhoneDetailCtrl'
+        controller: 'PhoneDetailCtrl',
+        controllerAs: 'detailVm'
     });
 })
 
-.controller('PhoneListCtrl', function ($scope, Phone) {
-    $scope.phones = Phone.query();
-    $scope.orderProp = 'age';
+.controller('PhoneListCtrl', function (Phone) {
+    this.phones = Phone.query();
+    this.orderProp = 'age';
 })
 
-.controller('PhoneDetailCtrl', function ($scope, $routeParams, Phone) {
-    $scope.phone = Phone.get({
+.controller('PhoneDetailCtrl', function ($routeParams, Phone) {
+    var self = this;
+
+    this.phone = Phone.get({
         phoneId: $routeParams.phoneId
     }, function (phone) {
-        $scope.mainImageUrl = phone.images[0];
+        self.mainImageUrl = phone.images[0];
     });
 
-    $scope.setImage = function (imageUrl) {
-        $scope.mainImageUrl = imageUrl;
+    this.setImage = function (imageUrl) {
+        self.mainImageUrl = imageUrl;
     }
 });
